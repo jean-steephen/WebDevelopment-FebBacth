@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Draw a Dice - 1 to 6 Numbers Random Order - Lucky No
+        //Get Input From User - Guess No
+        //Compare - Guess No and Lucky - Winning - pop up msg and Better Luck Next Time as Pop up
+        //Twist - Use a loop 
+
+
+        //Math Object - Random No Between 1 to 6
+        let luckyno = Math.floor(Math.random()*6) + 1  //This is to generate Lucky No from 1 to 6
+
+        while(true){
+
+            guess =   prompt("Enter Number from 1 to 6")
+
+            if(luckyno == guess){
+                alert('you Won')
+                break;
+            }else{
+                alert('Better Luck Next Time')
+            }
+
+        }    
+    </script>
+</body>
+</html>
