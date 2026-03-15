@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+     <div id="output">Contenu Original</div>
+
+    <script>
+        //Comparisans Operators
+
+        console.log(5=='5');//True
+        console.log(5 === '5');
+
+       //Prompt() method - For ask input from user
+        let username = prompt("Enter your name : ", "stephen")
+
+        //Confirm Method -To take a Ok or Cancel from user
+
+        let isConfirmed = confirm("Are you sure you want to proceed?")
+
+        /*La méthode `document.write()` est l'une des manières les plus simples d'insérer du contenu directement dans un document HTML. Cependant, son utilisation est souvent limitée car elle peut potentiellement écraser le contenu existant.*/
+
+        //Implémentation de base
+
+        document.write("<h1>Bienvenue!</h1>")
+        document.write("<p>Ce contenu a été généré par JavaScript.</p>")
+
+        /* : Appelée après le chargement complet de la page,
+         document.write() peut effacer tout le contenu HTML existant et le remplacer par le nouveau contenu.
+         Elle est donc généralement plus adaptée au début du chargement de la page ou à l'intérieur d'une <iframe>*/
+
+
+       //Alerte
+
+       /*La méthode alert() permet d'afficher rapidement un message à l'utilisateur dans une boîte de dialogue modale. Elle est souvent utilisée pour les notifications importantes et non interactives.
+       Caractéristiques principales
+       alert("Opération terminée avec succès !");
+       Affiche un message à l'utilisateur.
+       Bloque toute interaction de l'utilisateur avec le reste de la page jusqu'à la fermeture de la boîte de dialogue.
+       Ne renvoie aucune valeur.
+       Peut être intrusive ; à utiliser avec parcimonie et uniquement pour les informations critiques.*/
+
+       alert("Opération terminée avec succès !")
+
+       /*innerHTML : Manipulation dynamique de contenu
+
+      Pour mettre à jour dynamiquement des parties spécifiques de votre page web, innerHTML est la propriété la plus
+      polyvalente et la plus utilisée. Elle vous permet d'obtenir ou de définir le contenu HTML
+      d'un élément.*/
+        
+      let element = document.getElementById("output")
+      element.innerHTML = "<h2>NouveauTitre !</h2><p>Contenu mis à jourdepuis JS.</p>"
+      </script>
+</body>
+</html>
