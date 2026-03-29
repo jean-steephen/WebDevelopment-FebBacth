@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background: linear-gradient(to right , blue , lightblue);
+        }
+
+        h1{
+            color: #333;
+        }
+        .choices{
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .choices button{
+            padding: 15px;
+            margin: 10px;
+            font-size: 20px;
+            text-align: center;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+
+        #result{
+            margin-top: 20px;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .scoreboard{
+            background: white;
+            font-size: 18px;
+            margin-top: 30px;
+            border-radius: 10px;
+            padding: 15px;
+            display: block;
+            box-shadow: 0 0 15px red;
+        }
+
+        .reset{
+             padding: 15px;
+            margin: 10px;
+            font-size: 20px;
+            text-align: center;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Rock Paper Scissor Game</h1>
+
+    <div class="choices">
+        <button class="rock" onclick="playGame('rock')">🗿Rock</button>
+
+        <button class="paper" onclick="playGame('paper')">🗞️Paper</button>
+
+        <button class="scissor" onclick="playGame('scissors')">✂️Scissor</button>
+    </div>
+
+    <p id="result">Choose an option to Start the Game.</p>
+
+    <div class="scoreboard">
+        <p><strong>Scoreboard</strong></p>
+        <p>Wins   : <span id="wins">  0</span>  </p>
+        <p>Losses : <span id="losses">0</span>  </p>
+        <p>Draw   : <span id="draws"> 0</span>  </p>
+    </div>
+
+    <button class="reset" onclick="resetGame()">Restart</button>
+
+
+    <script>
+        let wins = 0
+        let losses = 0
+        let draws = 0
+
+
+        function playGame(userChoice){
+            //Rock -Paper - Scissor
+
+          const choices = ['rock' ,'paper' , 'scissors']
+
+          const computerChoice = choices[Math.floor(Math.random()*3)]
+         // console.log(computerChoice)- Tested 
+
+          let resultMessage = ""
+
+          //Logic of Game
+
+          if(userChoice === computerChoice){
+             resultMessage = ' You Pick The Same Option . It Is a Draw 😂' + userChoice
+             draws++
+          }
+          else if(
+              (userChoice === 'rock' && computerChoice === 'scissors') ||
+              (userChoice === 'paper' && computerChoice === 'rock') ||
+              (userChoice === 'scissors' && computerChoice === 'paper') 
+          
+            ){
+                resultMessage = 'You Wonnnnnnn 🎉 ' + userChoice + ' Beats 👎 ' + computerChoice
+                wins++
+            }else{
+                resultMessage = 'You Loose 🥲' + computerChoice + ' Beats 👎 ' + userChoice
+                losses++
+            }
+
+
+            document.getElementById('result').innerHTML = resultMessage
+            document.getElementById('wins').innerHTML = wins
+            document.getElementById('losses').innerHTML = losses
+            document.getElementById('draws').innerHTML = draws
+
+
+
+        }
+
+        function resetGame(){
+            wins = 0
+            losses = 0
+            draws = 0
+
+
+             document.getElementById('result').innerHTML = "Game Restarted Play Again"
+            document.getElementById('wins').innerHTML = wins
+            document.getElementById('losses').innerHTML = losses
+            document.getElementById('draws').innerHTML = draws
+
+
+
+        }
+        
+
+
+
+    </script>   
+</body>
+</html>
